@@ -48,7 +48,7 @@ def exercise_3():
 def change_case(my_string):
     res = [my_string[0].lower()]
     for ch in my_string[1:]:
-        if ch in ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+        if ch in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
             res.append('_')
             res.append(ch.lower())
         else:
@@ -62,9 +62,56 @@ def exercise_4():
     print('The converted string in lowercase_with_underscores is: ', change_case(word))
 
 
+# exercise_5
+def spiral_order(matrix, size):
+    top = 0
+    bottom = size - 1
+    left = 0
+    right = size - 1
+    direction = 0
+
+    while top <= bottom and left <= right:
+        if direction == 0:
+            for i in range(left, right + 1):
+                print(matrix[top][i], end="")
+
+            top += 1
+            direction = 1
+
+        elif direction == 1:
+            for i in range(top, bottom + 1):
+                print(matrix[i][right], end="")
+
+            right -= 1
+            direction = 2
+
+        elif direction == 2:
+            for i in range(right, left - 1, -1):
+                print(matrix[bottom][i], end="")
+            bottom -= 1
+            direction = 3
+
+        elif direction == 3:
+            for i in range(bottom, top - 1, -1):
+                print(matrix[i][left], end="")
+
+            left += 1
+            direction = 0
+
+
+def exercise_5():
+    print('-------------Exercise 5----------------')
+    size = int(input("What size is the matrix of characters?"))
+    matrix = []
+    for index in range(size):
+        text = input()
+        matrix.append(text)
+    spiral_order(matrix, size)
+
+
 # exercise_6
 def palindrome(number):
-    if (str)(number)[::-1] == (str)(number):
+    if str(number)[::-1] == str(number):
         return 'Yes, it is palindrome'
     return 'No, it it not palindrome'
 
@@ -75,14 +122,78 @@ def exercise_6():
     print(palindrome(number))
 
 
+# exercise_7
+def extract_number(text):
+    for iterator in range(len(text)):
+        if text[iterator].isnumeric():
+            number = text[iterator]
+            for iterator1 in range(iterator + 1, len(text)):
+                if text[iterator1].isnumeric():
+                    number = number + text[iterator1]
+                else:
+                    return number
+    return number
+
+
+def exercise_7():
+    print('-------------Exercise 7----------------')
+    text = input("Enter a text containing a number: ")
+    print(extract_number(text))
+
+
+# exercise_8
+def how_many_bits(number):
+    bin_number = bin(int(number))
+    number_of_1 = bin_number.count('1')
+    return number_of_1
+
+
+def exercise_8():
+    print('-------------Exercise 8----------------')
+    number = input("Enter a number to see how many values of 1 it has in binary form: ")
+    print('The number has ', how_many_bits(number), ' values of 1 in the binary representation')
+
+
+# exercise_9
+def common_character(text):
+    frequency = {}
+    text.replace(' ', '')
+
+    for i in text:
+        if i in frequency:
+            frequency[i] += 1
+        else:
+            frequency[i] = 1
+
+    return max(frequency, key=frequency.get)
+
+
+def exercise_9():
+    print('-------------Exercise 9----------------')
+    text = input("Enter a text to see the most common character: ")
+    print('The most common character is: ', common_character(text))
+
+
+# exercise_10
+def how_many_words(text):
+    words = text.split(' ')
+    return len(words)
+
+
+def exercise_10():
+    print('-------------Exercise 10----------------')
+    text = input("Enter a text: ")
+    print('The text <', text, '> has ', how_many_words(text), 'words')
+
+
 if __name__ == '__main__':
-    ##exercise_1()
-    ##exercise_2()
-    ##exercise_3()
-    ##exercise_4()
-    ##exercise_5()
+    exercise_1()
+    exercise_2()
+    exercise_3()
+    exercise_4()
+    exercise_5()
     exercise_6()
-    ##exercise_7()
-    ##exercise_8()
-    ##exercise_9()
-    ##exercise_10()
+    exercise_7()
+    exercise_8()
+    exercise_9()
+    exercise_10()
