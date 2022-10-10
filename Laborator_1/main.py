@@ -14,7 +14,7 @@ def exercise_1():
     numbers = [int(numbers) for numbers in input("Please enter multiple values: ").split()]
     first_cmmdc = cmmdc(numbers[0], numbers[1])
     for i in range(len(numbers)):
-        if (i > 1):
+        if i > 1:
             final_cmmdc = cmmdc(first_cmmdc, numbers[i])
     print('The cmmdc of the given values is: ', final_cmmdc)
 
@@ -46,14 +46,14 @@ def exercise_3():
 
 # exercise_4
 def change_case(my_string):
-    res = [my_string[0].lower()]
+    result = [my_string[0].lower()]
     for ch in my_string[1:]:
         if ch in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-            res.append('_')
-            res.append(ch.lower())
+            result.append('_')
+            result.append(ch.lower())
         else:
-            res.append(ch)
-    return ''.join(res)
+            result.append(ch)
+    return ''.join(result)
 
 
 def exercise_4():
