@@ -47,10 +47,10 @@ def exercise_2():
 
 # exercise_3
 def operations_with_lists(a, b):
-    a_or_b = [1]
-    a_and_b = [2]
-    a_minus_b = [3]
-    b_minus_a = [4]
+    a_or_b = list(set().union(a, b))
+    a_and_b = [x for x in a if x in b]
+    a_minus_b = [x for x in a if x not in b]
+    b_minus_a = [x for x in b if x not in a]
     return a_or_b, a_and_b, a_minus_b, b_minus_a
 
 
