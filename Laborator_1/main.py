@@ -8,7 +8,6 @@ def cmmdc(number1, number2):
         number2 = rest
     return number1
 
-
 def exercise_1():
     print('-------------Exercise 1----------------')
     numbers = [int(numbers) for numbers in input("Please enter multiple values: ").split()]
