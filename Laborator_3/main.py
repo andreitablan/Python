@@ -3,10 +3,15 @@
 # exercise_1
 def operations_with_lists(a, b):
     a_or_b = list(set().union(a, b))
-    a_and_b = [x for x in a if x in b]
+    a_and_b = list(set().intersection(a, b))
     a_minus_b = [x for x in a if x not in b]
     b_minus_a = [x for x in b if x not in a]
-    return a_or_b, a_and_b, a_minus_b, b_minus_a
+    list = []
+    list.append(a_or_b)
+    list.append(a_and_b)
+    list.append(a_minus_b)
+    list.append(b_minus_a)
+    return list
 
 
 def exercise_1():
@@ -21,9 +26,9 @@ def dictionary_from_string(string):
     dictionary = dict()
     for ch in string:
         if ch not in dictionary:
-            dictionary[ch]=1
+            dictionary[ch] = 1
         else:
-            dictionary[ch]+=1
+            dictionary[ch] += 1
     return dictionary
 
 
@@ -32,8 +37,9 @@ def exercise_2():
     string = "AnaAreMere"
     print(dictionary_from_string(string))
 
-#exercise_3
-def compare_dictionary(dictionary1,dictionary2):
+
+# exercise_3
+def compare_dictionary(dictionary1, dictionary2):
     if len(dictionary1) != len(dictionary2):
         return False
     else:
@@ -46,6 +52,7 @@ def compare_dictionary(dictionary1,dictionary2):
             return True
         else:
             return False
+
 
 def exercise_3():
     print('-------------Exercise 2----------------')
@@ -61,32 +68,81 @@ def exercise_3():
         'list': ['one', 'three'],
         'number': 1
     }
-    print(compare_dictionary(dictionary1,dictionary2))
-    print(compare_dictionary(dictionary1,dictionary3))
+    print(compare_dictionary(dictionary1, dictionary2))
+    print(compare_dictionary(dictionary1, dictionary3))
 
-#exercise_4
-def build_xml_element(tag, content,href,_class,id):
-    string='<'+tag+" herf= "+href+"\_class= "+_class+"'\id="+id+"\>"+content+"</"+tag+">"
+
+# exercise_4
+def build_xml_element(tag, content, href, _class, id):
+    string = '<' + tag + " herf= " + href + "\_class= " + _class + "'\id=" + id + "\>" + content + "</" + tag + ">"
     return string
+
 
 def exercise_4():
     print(build_xml_element("a", "Hello there", href=" http://python.org ", _class=" my-link ", id=" someid "))
-    #< a href =\"http://python.org \ "_class = \" my-link \ " id = \" someid \ " > Hello there < / a >
+    # < a href =\"http://python.org \ "_class = \" my-link \ " id = \" someid \ " > Hello there < / a >
 
-def validate_dict(dictionary,rule):
+
+# exercise 5
+def validate_dict(dictionary, rule):
     for tuple in rule:
-        for element in tuple:
-            return True
+        return True
+    # str.startswith
+    # str.endswith
+    # pentru middle -> scot inceput si final, si verific ce ramane.
+
+
 def exercise_5():
     s = {("key1", "", "inside", ""), ("key2", "start", "middle", "winter")}
     d = {"key1": "come inside, it's too cold out", "key3": "this is not valid"}
-    print(validate_dict(d,s))
+    print(validate_dict(d, s))
+
+
+# exercise 6
+def unique_not_unique(list):
+    dict = {}
+    a = 0
+    b = 0
+    for element in list:
+        if element not in dict:
+            dict[element] = 1
+        else:
+            dict[element] += 1
+    for key in dict:
+        if dict[key] == 1:
+            a += 1
+        else:
+            b += 1
+    return a, b
+
+
+def exercise_6():
+    list = [1, 1, 2, 3, 4, 4, 5, 6, 7, 8, 8]
+    print(unique_not_unique(list))
+
+
+# exercise 7
+def exercise_7():
+    return True
+
+
+# exercise 8
+def loop(dictionary):
+    return True
+
+
+def exercise_8():
+    dict = {'start': 'a', 'b': 'a', 'a': '6', '6': 'z', 'x': '2', 'z': '2', '2': '2', 'y': 'start'}
+    print(loop(dict))
+
 
 if __name__ == '__main__':
     # exercise_1()
     # exercise_2()
-    # exercise_3()
-    #exercise_4()-not ok
-    exercise_5()#not finished
-
-
+    # exercise_3() -> flatten; 2 dict cheie cu cheie si verificat sa fie in acelasi dictionar
+    # exercise_4()-not ok
+    # exercise_5()  # not finished
+    # exercise_6()
+    exercise_7()
+    exercise_8()
+    # ex 9 -> *args, **Kwargs

@@ -24,7 +24,8 @@ def exercise_1():
 # exercise_2
 def is_prime(number):
     if number < 1: return False
-    if number == 2 or number == 1: return True
+    if number == 2:
+        return True
     for index in range(3, number // 2):
         if number % index == 0:
             return False
