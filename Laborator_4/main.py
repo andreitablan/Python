@@ -69,8 +69,14 @@ def exercise_4():
     print("----------------Exercise 4----------------")
 
 
+# exercise 5
+def exercise_5():
+    print("----------------Exercise 5----------------")
+
+
 if __name__ == '__main__':
     # exercise_1()
     # exercise_2()
     # exercise_3()
     exercise_4()
+    exercise_5()

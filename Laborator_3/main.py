@@ -73,23 +73,28 @@ def exercise_3():
 
 
 # exercise 4
-def build_xml_element(tag, content, href, _class, id):
-    string = '<' + tag + '\n' + "herf=" + href + '\n' + "_class= " + _class + '\n' + "id=" + id + ">" + content + "</" + tag + ">"
+def build_xml_element(tag, content, **kwargs):
+    string = '<' + tag + "\n"
+
+    for k, v in kwargs.items():
+        string += ''.join(f'{k}={v}')
+
+    string += content + "</" + tag + ">"
     return string
 
 
 def exercise_4():
     print('-------------Exercise 4----------------')
+    keywords = {'herf': "http://python.org", 'class': "my-link", 'id': "someid "}
 
-    print(build_xml_element("a", "Hello there", href=" http://python.org ", _class=" my-link ", id=" someid "))
+    print(build_xml_element(tag="a", content="Hello there", **keywords))
 
 
 # exercise 5
 def validate_dict(dictionary, rule):
     for tuple in rule:
         if tuple[0] in dictionary:
-            middle = dictionary[tuple[0]][:-len(tuple[3])]
-            middle = dictionary[tuple[0]][:len(tuple[1])]
+            middle = dictionary[tuple[0]][len(tuple[1]):-len(tuple[3])]
             if dictionary[tuple[0]].startswith(tuple[1]) and middle == tuple[2] and dictionary[tuple[0]].endswith(
                     tuple[3]):
                 return True
@@ -100,8 +105,8 @@ def validate_dict(dictionary, rule):
 def exercise_5():
     print('-------------Exercise 5----------------')
 
-    s = {("key1", "", "inside", ""), ("key2", "start", "middle", "winter")}
     d = {"key1": "come inside, it's too cold out", "key3": "this is not valid"}
+    s = {("key1", "", "inside", ""), ("key2", "start", "middle", "winter")}
     print(validate_dict(d, s))
 
 
