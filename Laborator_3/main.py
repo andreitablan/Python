@@ -95,6 +95,7 @@ def validate_dict(dictionary, rule):
     for tuple in rule:
         if tuple[0] in dictionary:
             middle = dictionary[tuple[0]][len(tuple[1]):-len(tuple[3])]
+
             if dictionary[tuple[0]].startswith(tuple[1]) and middle == tuple[2] and dictionary[tuple[0]].endswith(
                     tuple[3]):
                 return True

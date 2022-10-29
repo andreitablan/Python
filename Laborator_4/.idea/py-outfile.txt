@@ -1,4 +1,6 @@
-import os
+C:\Users\andre\Desktop\Facultate\Licenta Anul 3\Semestrul 1\Python\FII_Tablan_Andrei-Razvan_Python\Laborator_4\Aaaa
+C:\Users\andre\Desktop\Facultate\Licenta Anul 3\Semestrul 1\Python\FII_Tablan_Andrei-Razvan_Python\Laborator_4\A_2
+anaimport os
 import glob
 import sys
 
@@ -174,10 +176,20 @@ def exercise_7():
 def return_list_of_absolute_paths(dir_path):
     list_to_return = []
     for root, subFolders, files in os.walk(dir_path):
+
         for folder in subFolders:
-            list_to_return.append(os.path.abspath(folder))
-        for file in files:
-            list_to_return.append(os.path.abspath(file))
+            outfileName = dir_path + "/" + folder + "/py-outfile.txt"  # hardcoded path
+            folderOut = open(outfileName, 'w')
+            print("outfileName is " + outfileName)
+            for file in files:
+                filePath = dir_path + '/' + file
+                f = open(filePath, 'r')
+                toWrite = f.read()
+                print("Writing '" + toWrite + "' to" + filePath)
+                folderOut.write(toWrite)
+                f.close()
+
+            folderOut.close()
     return list_to_return
 
 
@@ -187,11 +199,11 @@ def exercise_8():
 
 
 if __name__ == '__main__':
-    exercise_1()
-    exercise_2()
-    exercise_3()
-    exercise_4()
-    exercise_5()
-    exercise_6()
-    exercise_7()
+    # exercise_1()
+    # exercise_2()
+    # exercise_3()
+    # exercise_4()
+    # exercise_5()
+    # exercise_6()
+    # exercise_7()
     exercise_8()
