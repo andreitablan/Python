@@ -2,12 +2,10 @@ import os
 import glob
 import sys
 
+
 # FII Tablan Andrei Razvan - Lab 4
 
 # exercise 1
-from mmap import mmap
-
-
 def return_extensions(directory):
     list_of_terminations = []
     for filename in os.listdir(directory):
