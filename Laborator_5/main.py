@@ -233,12 +233,12 @@ def exercise_9():
 
 
 if __name__ == '__main__':
-    # exercise_1()
-    # exercise_2() refacut functia anonima
-    # exercise_3()
-    # exercise_4() verificat de ce imi da dublu
-    # exercise_5()
-    # exercise_6()
-    # exercise_7() revizuit filters
+    exercise_1()
+    exercise_2()
+    exercise_3()
+    exercise_4()
+    exercise_5()
+    exercise_6()
+    exercise_7()
     exercise_8() # not finished c
-    # exercise_9()
+    exercise_9()
