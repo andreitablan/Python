@@ -47,8 +47,15 @@ def exercise_3():
 
 
 # exercise 4
+def return_items(path, arrts):
+    list_to_return = []
+    # with open(path,"r") as file:
+
+
 def exercise_4():
     print("-----Exercise 4-----")
+    attrs = {"class": "url", "name": "url-form", "data-id": "item"}
+    print("", attrs)
 
 
 # exercise 5
@@ -122,4 +129,3 @@ if __name__ := 'main/py':
     exercise_7()
     exercise_8()
     exercise_4()
-
