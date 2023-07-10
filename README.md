@@ -1,3 +1,3 @@
 # Python
 ### Relevant links
-[Python Course page](https://sites.google.com/site/fiipythonprogramming)
+[Python - course page](https://sites.google.com/site/fiipythonprogramming)
